@@ -7,8 +7,7 @@ class LocatorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Locator
-        fields = '__all__'
-        ready_only_fields = ['id']
+        fields = ['request_ipv4']
 
     # def validate_title(self, _title):
     #     query = Book.objects.filter(title__iexact=_title)
