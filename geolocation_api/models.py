@@ -7,6 +7,8 @@ class Locator(models.Model):
 
 	request_ipv4 = models.CharField(max_length=15, default='check',
 									help_text='Please input desired IP address')
+	# location_data = models.JSONField(auto_created=True)
+	data_collected = models.TextField()
 	# request_ipv4 = 'check'
 	# access_key =
 	# data_format = '&output=json'

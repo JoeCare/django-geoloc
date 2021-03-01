@@ -25,6 +25,8 @@ def default_list(request):
     """
     List all code snippets, or create a new snippet.
     """
+    base_url = f'http://api.ipstack.com/check?access_key=' \
+               f'{os.getenv("ipstackKey")}'
 
     if request.method == 'GET':
         locations = Locator.objects.all()
@@ -32,11 +34,9 @@ def default_list(request):
         return JsonResponse(serializer.data, safe=False)
 
     elif request.method == 'POST':
-        base_url = f'http://api.ipstack.com/check?access_key=' \
-                   f'{os.getenv("ipstackKey")}'
+
         ip_data_dict = requests.get(base_url).json()
-        r = requests.post('https://httpbin.org/post', data=ip_data_dict)
-        print(r.text)
+        # r = requests.post('https://httpbin.org/post', data=ip_data_dict)
         data = JSONParser().parse(request)
         serializer = LocatorSerializer(data=data)
         if serializer.is_valid():
