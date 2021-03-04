@@ -127,6 +127,6 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 4,
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.BrowsableAPIRenderer',
-        # 'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.JSONRenderer',
         ]
 }

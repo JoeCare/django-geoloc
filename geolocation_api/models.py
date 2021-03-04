@@ -1,15 +1,17 @@
 from django.db import models
-import os
+import os, requests
 # Create your models here.
 
 
 class Locator(models.Model):
 
-	request_ipv4 = models.CharField(max_length=15, default='check')
+	request_ipv4 = models.CharField(max_length=15, default='check',
+									help_text='Please input desired IP address')
+	# location_data = models.JSONField(auto_created=True)
+	data_collected = models.TextField()
 	# request_ipv4 = 'check'
-	# access_key = os.getenv('ipstackKey')
+	# access_key =
 	# data_format = '&output=json'
-	# base_url = f'http://api.ipstack.com/{request_ipv4}?access_key={access_key}'
 
 	# @property
 	# def revealed_info(self):
